@@ -1,0 +1,47 @@
+/* Render-only page overrides: fully transparent, exact canvas size,
+   deterministic (no CSS animations/transitions, no UI chrome). */
+
+html,
+body {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: 0 !important;
+}
+
+* {
+  animation: none !important;
+  transition: none !important;
+}
+
+.render-root.studio-app,
+.render-root.studio-app[data-shell="tech"] {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  color: inherit;
+  position: relative;
+  isolation: isolate;
+}
+
+.render-root.studio-app::before,
+.render-root.studio-app::after {
+  content: none !important;
+  display: none !important;
+}
+
+.render-root .render-stage.preview-shell {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+}
