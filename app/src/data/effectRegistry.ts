@@ -527,7 +527,7 @@ export const effectRegistry: EffectDefinition[] = [
     defaultParams: {
       x: 8,
       y: 44,
-      scale: 0.58,
+      scale: 0.68,
       accent: "#249dff",
       intensity: 82,
       speed: 1,
@@ -548,7 +548,7 @@ export const effectRegistry: EffectDefinition[] = [
     defaultParams: {
       x: 8,
       y: 48,
-      scale: 0.42,
+      scale: 0.54,
       accent: "#249dff",
       intensity: 84,
       speed: 1,
@@ -569,7 +569,7 @@ export const effectRegistry: EffectDefinition[] = [
     defaultParams: {
       x: 8,
       y: 48,
-      scale: 0.42,
+      scale: 0.52,
       accent: "#249dff",
       intensity: 86,
       speed: 1,
@@ -590,7 +590,7 @@ export const effectRegistry: EffectDefinition[] = [
     defaultParams: {
       x: 8,
       y: 48,
-      scale: 0.42,
+      scale: 0.52,
       accent: "#ff5d62",
       intensity: 82,
       speed: 1,
@@ -611,7 +611,7 @@ export const effectRegistry: EffectDefinition[] = [
     defaultParams: {
       x: 8,
       y: 48,
-      scale: 0.42,
+      scale: 0.54,
       accent: "#249dff",
       intensity: 84,
       speed: 1,

@@ -135,8 +135,9 @@ const srtSafePositions: Record<EffectId, Array<{ x: number; y: number }>> = {
 };
 
 function safePositionFor(effectId: EffectId, index: number) {
-  const positions = srtSafePositions[effectId];
-  return positions[index % positions.length];
+  // New cards should be predictable: start in the top-left safe zone.
+  // The inspector remains the place for deliberate repositioning.
+  return { x: 8, y: 16 };
 }
 
 function clampPercent(value: number, min: number, max: number) {

@@ -574,7 +574,7 @@ const baseRoutePresets = {
     subtitle: "动作清单 / 逐项出现",
     x: 8,
     y: 38,
-    scale: 0.58,
+    scale: 0.68,
     lane: 0,
     align: "left",
     panelTone: "none",
@@ -587,7 +587,7 @@ const baseRoutePresets = {
     subtitle: "任务组成 / 模块拆解",
     x: 8,
     y: 48,
-    scale: 0.42,
+    scale: 0.54,
     lane: 0,
     align: "left",
     panelTone: "none",
@@ -600,7 +600,7 @@ const baseRoutePresets = {
     subtitle: "规模结果 / 资产总量",
     x: 8,
     y: 46,
-    scale: 0.42,
+    scale: 0.52,
     lane: 1,
     align: "left",
     panelTone: "none",
@@ -613,7 +613,7 @@ const baseRoutePresets = {
     subtitle: "多步骤 / 连续工具链",
     x: 8,
     y: 48,
-    scale: 0.42,
+    scale: 0.52,
     lane: 0,
     align: "left",
     panelTone: "none",
@@ -626,7 +626,7 @@ const baseRoutePresets = {
     subtitle: "一句话重点 / 核心短语",
     x: 8,
     y: 46,
-    scale: 0.42,
+    scale: 0.54,
     lane: 0,
     align: "left",
     panelTone: "none",
@@ -640,7 +640,7 @@ const baseRoutePresets = {
     subtitle: "SAME RESULT",
     x: 10,
     y: 32,
-    scale: 0.62,
+    scale: 0.70,
     lane: 1,
     align: "left",
     panelTone: "none",
@@ -810,6 +810,12 @@ function hasStepSignal(text: string) {
   );
 }
 
+function hasThreeStepSignal(text: string) {
+  return /(?:3|三|三个|三大)(?:个)?(?:步|步骤|阶段|环节|规则|原则)|第(?:1|一)步[\s\S]*第(?:2|二)步[\s\S]*第(?:3|三)步/.test(
+    text,
+  );
+}
+
 function hasNumberSignal(text: string) {
   return /\d|[零〇一二两三四五六七八九十百千万亿]+(?:个|种|张|次|轮|万|亿|%|％|秒|分钟|小时|年|元|块|倍|层|条|位|名|套|页|篇|卡|项|分|天|家|款|点)|第(?:\d+|[零〇一二两三四五六七八九十百千万亿]+)/.test(text);
 }
@@ -829,13 +835,8 @@ function hasLargeNumberSignal(text: string) {
 }
 
 function pickRoutePreset(text: string, index: number) {
-  const normalized = normalizeRouteText(text);
-  const analysis = analyzeSubtitle(normalized);
-
-  // Keep automatic output coherent: only explicit semantic signals leave the default card.
-  if (hasPercentSignal(normalized)) return baseRoutePresets.amberProgressRing;
-  if (analysis.intent === "流程") return baseRoutePresets.threeStepActionCard;
-  if (hasNumberSignal(normalized)) return baseRoutePresets.numericPunchCard;
+  // Keep automatic output predictable. Specialized cards are opt-in edits;
+  // importing an SRT starts every semantic segment with the same highlight card.
   return baseRoutePresets.keyPhraseHighlight;
 }
 
@@ -865,12 +866,10 @@ function buildClipFromRoute(
     enabled: true,
     params: {
       ...effect.defaultParams,
-      x: clamp(preset.x, 8, 35),
-      y: clamp(
-        preset.y,
-        preset.moduleVariant === "timeline-progress-bar" ? -16 : 12,
-        preset.moduleVariant === "timeline-progress-bar" ? 0 : 86,
-      ),
+      // Automatic SRT cards start in the top-left safe zone. Users can still
+      // reposition the cards after import without losing that default.
+      x: 8,
+      y: preset.moduleVariant === "timeline-progress-bar" ? 0 : 16,
       scale: preset.scale,
       accent,
       intensity: 70,

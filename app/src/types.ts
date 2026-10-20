@@ -138,6 +138,8 @@ export type OverlayProject = {
     width: number;
     height: number;
     fps: number;
+    /** Pixel density used when exporting against a higher-resolution source video. */
+    pixelRatio?: number;
   };
   clips: OverlayClip[];
 };

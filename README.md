@@ -52,6 +52,18 @@ A smaller pane holds the speaker while a larger pane presents the demonstration.
 
 ![未上传素材的分屏布局 / Split-screen layout before media upload](docs/images/split-preview.png)
 
+### 动效卡片总览 | Motion Card Gallery
+
+工作台内置一个独立的动效总览页，可以同时查看基础动效和高级动效的真实播放状态。桌面端一排展示 4 张卡片，支持搜索、分类、深浅底、透明棋盘、暂停和重播；它与工作台共用同一套卡片渲染代码。
+
+The workbench includes a separate motion-card gallery that previews the real animated cards without opening them one by one. Desktop uses a four-column grid with search, category filters, light/dark/checkerboard backgrounds, pause, and replay. The gallery shares the same card renderer as the workbench.
+
+![动效卡片总览 / Motion card gallery](docs/images/card-library-gallery.png)
+
+![高级动效总览 / Advanced motion gallery](docs/images/card-library-advanced.png)
+
+![手机端动效总览 / Mobile motion gallery](docs/images/card-library-mobile.png)
+
 ## 快速开始 | Quick Start
 
 1. 安装 Node.js 22 LTS 或更新版本。 / Install Node.js 22 LTS or newer.
@@ -69,6 +81,8 @@ The first launch downloads dependencies, builds the app, and opens your browser.
 这是 macOS 源码试用包，不是已签名的桌面安装器。启动使用空闲本机端口，不停止其他服务。端口变化会隔离浏览器存储，所以请主动导出 JSON，重新打开后导入编排并选择视频。
 
 This is a macOS source preview, not a signed desktop installer. The launcher uses an available local port without stopping other services. Browser storage is isolated by port, so export your JSON plans and reimport them, along with your footage, when reopening on a different port.
+
+启动后可访问 `/gallery.html` 查看动效卡片总览。/After launch, open `/gallery.html` to browse the motion-card gallery.
 
 ## 推荐工作流 | Suggested Workflow
 

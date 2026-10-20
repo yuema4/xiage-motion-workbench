@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { OrbitGlassCards } from "./OrbitGlassCards";
 import { AppIconOrbit } from "./AppIconOrbit";
+import { BehindPerson } from "./BehindPerson";
 import type { CSSProperties, JSX, ReactNode } from "react";
 import {
   ArrowLeft,
@@ -210,7 +211,7 @@ export function resolveEffectComponent(clip: OverlayClip) {
     case "orbit-glass-cards":
       return OrbitGlassCards;
     case "app-icon-orbit":
-      return () => <></>;
+      return AppIconOrbit;
     case "timeline-progress-bar":
       return TimelineProgressBar;
     case "beat-step-list-theme-cycle":
@@ -800,7 +801,7 @@ export function PreviewStage({
           </button>
         );
         return clip.params.moduleVariant === "app-icon-orbit"
-          ? null
+          ? <BehindPerson key={clip.id} videoRef={videoRef} videoUrl={videoUrl} onError={onVideoError}>{content}</BehindPerson>
           : content;
       })}
     </section>

@@ -171,4 +171,4 @@ export const techModules: EffectCardTemplate[] = [
   },
 ];
 
-export const allTechModules = techModules.filter(module => module.id !== 'app-icon-orbit');
+export const allTechModules = techModules;
