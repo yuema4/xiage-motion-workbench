@@ -4,7 +4,7 @@
 
 **Arrange reusable motion graphics for talking-head videos. Preview and edit locally.**
 
-macOS · Node.js 22+ · 私有试用 / Private Preview
+macOS · Node.js 22+ · 公共下载 / Public Download
 
 ![工作台总览 / Workbench overview](docs/images/workbench-overview.png)
 
@@ -120,6 +120,6 @@ See the [acceptance checklist](docs/ACCEPTANCE.md) and [third-party notes](docs/
 
 ## 访问与授权 | Access and Licensing
 
-当前仅限获邀私有试用，未授予公开再分发或商业许可。第三方依赖继续受各自许可证约束。
+仓库现在公开，任何人都可以查看和下载源码。公开可见不等于自动获得修改、商用或再分发许可；在补充正式许可证前，代码和品牌内容仍保留原作者权利。第三方依赖继续受各自许可证约束。
 
-Access is currently limited to invited private testers. No permission for public redistribution or commercial use is granted. Third-party dependencies remain subject to their respective licenses.
+The repository is public, so anyone can view and download the source. Public visibility does not automatically grant permission to modify, commercialize, or redistribute the project; until a formal license is added, the source and brand content remain under the author's rights. Third-party dependencies remain subject to their own licenses.
